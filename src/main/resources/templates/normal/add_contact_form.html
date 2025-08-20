@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+</head>
+
+<body>
+
+    <section class="banner-userbg d-flex justify-content-center align-items-start"
+        style="min-height: 93vh; position: relative;">
+
+
+        <div th:if="${session.message}"
+            class="custom-toast-container position-absolute top-0 w-100 d-flex justify-content-center mt-3">
+            <div th:class="'custom-toast ' + ${session.message.type}" role="alert" id="toast-message">
+                <p class="mb-0" th:text="${session.message.content}"></p>
+            </div>
+        </div>
+
+
+        <div class="glass-card mt-5 p-4" style="width: 100%; max-width: 600px;">
+
+            <h3 class="text-center mb-4">Add New Contact</h3>
+
+            <form th:action="@{/user/process-contact}" method="post" enctype="multipart/form-data"
+                th:object="${contact}" novalidate>
+
+                <!-- First Name -->
+                <div class="mb-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" th:field="*{name}" class="form-control"
+                        th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'" placeholder="First name" required>
+                    <div class="invalid-feedback" th:errors="*{name}"></div>
+                </div>
+
+                <!-- Last Name -->
+                <div class="mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" th:field="*{secondName}" class="form-control"
+                        th:classappend="${#fields.hasErrors('secondName')} ? 'is-invalid'" placeholder="Last name"
+                        required>
+                    <div class="invalid-feedback" th:errors="*{secondName}"></div>
+                </div>
+
+                <!-- Work -->
+                <div class="mb-3">
+                    <label class="form-label">Work</label>
+                    <input type="text" th:field="*{work}" class="form-control" placeholder="Company or Designation"
+                        required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control"
+                        th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" placeholder="Email address"
+                        required>
+                    <div class="invalid-feedback" th:errors="*{email}"></div>
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="text" th:field="*{phone}" class="form-control"
+                        th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid'" placeholder="Phone number"
+                        required min="10" max="13" pattern="[0-9]{10}">
+                    <div class="invalid-feedback" th:errors="*{phone}"></div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="mb-3">
+                    <label class="form-label">Profile Image</label>
+                    <input type="file" name="profileImage" class="form-control">
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea id="textarea" th:field="*{description}" class="form-control" rows="3"
+                        placeholder="Any additional notes..."></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-white-outline">Save Contact</button>
+                </div>
+
+            </form>
+        </div>
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/plugins.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+                selector: 'textarea',
+                height: 500,
+                plugins: [
+                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+                    'pagebreak', 'tinymcespellchecker'
+                ]
+            });
+        </script>
+    </section>
+
+</body>
+
+</html>

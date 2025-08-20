@@ -1,0 +1,282 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+
+.bg-primary {
+  background: #808080 !important;
+}
+.banner {
+  width: 100%;
+  height: 93vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../img/banner.jpg);
+  background-size: cover;
+  color: white;
+}
+.custom-font {
+  font-family: Courier New, monospace;
+}
+.bg-signup {
+  width: 100%;
+  min-height: 100vh; /* ensures it takes at least the full height */
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../img/bannersignup.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.my-card {
+  padding: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+.banner-userbg {
+  width: 100%;
+  height: calc(100vh - 60px); /* Adjust height based on navbar */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../img/userbg.jpg) center/cover no-repeat;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+/* Existing background class — keep this */
+.banner-cusloginbg {
+  width: 100%;
+  height: 93vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../img/customloginbanner.jpg);
+  background-size: cover;
+  color: white;
+}
+
+/* 🔥 Updated login card style for glassmorphism effect */
+.glass-login-card {
+  background: rgba(0, 0, 0, 0.6); /* black translucent */
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* White text for form labels */
+.glass-login-card .form-label {
+  color: white;
+}
+
+/* White bordered, transparent inputs */
+.glass-login-card .form-control {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.glass-login-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-login-card .form-control:focus {
+  background: transparent;
+  border-color: white;
+  box-shadow: none;
+  color: white;
+}
+/* White outline buttons */
+
+.navbar-modern {
+  background-color: #1f1f1f;
+  border-bottom: 2px solid #0d6efd;
+}
+
+.navbar-modern .navbar-brand {
+  color: #ffffff !important;
+}
+
+.navbar-modern .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+.sidebar-dark {
+  background-color: #1f1f1f;
+  color: white;
+  width: 250px;
+}
+
+.sidebar-item {
+  background-color: #1f1f1f;
+  border: none;
+  padding: 1rem 1.5rem;
+}
+
+.sidebar-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.sidebar-link:hover {
+  color: #0d6efd;
+  background-color: #2a2a2a;
+}
+
+.content {
+  padding: 2rem;
+}
+
+.btn-close-white {
+  filter: invert(1);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 80px; /* <--- Push away from navbar */
+}
+/* White inputs */
+.form-control {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.3);
+}
+
+/* Button with white outline */
+.btn-white-outline {
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+}
+
+.btn-white-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.alert-success {
+  border-left: 6px solid #28a745;
+}
+
+.alert-danger {
+  border-left: 6px solid #dc3545;
+}
+.custom-toast {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  text-align: center;
+  border-left: 4px solid #28a745;
+}
+.my_pfp {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.banner-contactsdetailbg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../img/sf90.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner-yourprofilebg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 93vh;
+  z-index: -1;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../img/yourprofile.jpg);
+  background-size: auto;
+  background-position: center;
+  background-repeat: space;
+}
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: calc(100vh - 70px); /* Navbar height adjustment 
+  padding: 0; 
+  margin: 0;*/
+}
+
+.profile-card {
+  background: rgba(58, 57, 57, 0.4); /* lighter transparency */
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+  text-align: center;
+  color: #fff;
+}
+.profile-img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #ffffffcc;
+  margin-top: 15px;
+}
+
+.info-text {
+  color: #ddd;
+  margin-bottom: 10px;
+}

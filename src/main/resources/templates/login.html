@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::section})">
+
+<section class="banner-cusloginbg d-flex justify-content-center align-items-center">
+
+	<div class="container">
+		<div class="row justify-content-center align-items-center" style="min-height: 93vh;">
+			<div class="col-md-6 col-lg-5">
+				<div class="glass-login-card">
+					<div class="text-center mb-4">
+						<h2 class="fw-bold">Welcome Back</h2>
+						<p class="text-light">Login to Smart Contact Manager</p>
+					</div>
+
+					<!-- Login error -->
+					<div th:if="${param.error}" class="alert alert-danger text-center">
+						Invalid username or password.
+					</div>
+
+					<!-- Logout message -->
+					<div th:if="${param.logout}" class="alert alert-success text-center">
+						You've been logged out successfully.
+					</div>
+
+					<form th:action="@{/do_login}" action="#" method="post">
+						<div class="mb-3">
+
+
+							<label for="username" class="form-label">Username</label>
+							<input type="text" class="form-control" name="username" id="username"
+								placeholder="Enter username" required>
+						</div>
+
+						<div class="mb-4">
+							<label for="password" class="form-label">Password</label>
+							<input type="password" class="form-control" name="password" id="password"
+								placeholder="Enter password" required>
+						</div>
+
+						<div class="d-grid gap-2">
+							<button type="submit" class="btn btn-white-outline">Login</button>
+							<a th:href="@{/signup}" class="btn btn-white-outline">Create Account</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</html>

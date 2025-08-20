@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>User Dashboard</title>
+</head>
+
+<body>
+	<section class="banner-userbg d-flex align-items-center justify-content-center text-white">
+		<div class="container text-center">
+			<h1>Welcome User</h1>
+			<p>This is user dashboard</p>
+			<h4>User name : <span th:text="${user.name}">Name</span></h4>
+			<h4>User Email : <span th:text="${user.email}">Email</span></h4>
+		</div>
+	</section>
+
+</body>
+
+</html>

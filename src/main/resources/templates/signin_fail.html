@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Profile</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.9), rgba(44, 83, 100, 0.9)),
+                url('/img/yourprofile.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #ffffffcc;
+            margin-top: 15px;
+        }
+
+        .info-text {
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="profile-container">
+        <div class="profile-card">
+            <!-- Profile Image -->
+            <!-- <img th:src="@{'/img/' + ${user.imageurl}}" alt="User Image" class="profile-img"> -->
+
+            <!-- Name -->
+            <div class="profile-name" th:text="${user.name}">John Doe</div>
+
+            <!-- Info -->
+            <div class="profile-info">
+                <div class="info-label">Email</div>
+                <div class="info-text" th:text="${user.email}">user@example.com</div>
+
+                <div class="info-label">Role</div>
+                <div class="info-text" th:text="${user.role}">ROLE_USER</div>
+
+                <div class="info-label">About</div>
+                <div class="info-text" th:text="${user.about}">This is the about section.</div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

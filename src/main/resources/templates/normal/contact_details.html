@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact detail</title>
+</head>
+
+<body>
+    <section class="banner-contactsdetailbg d-flex align-items-center justify-content-center  mb-4">
+        <div class="container text-center text-white">
+            <h1>Contact Details</h1>
+            <p>Here are the details of the contact.</p>
+        </div>
+
+        <div class="container">
+            <div class="card shadow rounded p-4">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img th:src="@{'/img/' + ${contact.cimage}}" class="img-thumbnail rounded-circle shadow"
+                            style="max-width: 200px;" />
+                    </div>
+                    <div class="col-md-8">
+                        <h3 th:text="${contact.name}">Name</h3>
+                        <p><strong>Email:</strong> <span th:text="${contact.email}">email@example.com</span></p>
+                        <p><strong>Phone:</strong> <span th:text="${contact.phone}">1234567890</span></p>
+                        <p><strong>Work:</strong> <span th:text="${contact.work}">Engineer</span></p>
+                        <p><strong>Description:</strong></p>
+                        <p th:text="${contact.description}">This is a sample description of the contact.</p>
+                    </div>
+                    <div class="mt-4 text-end">
+                        <a href="{'/user/show-contacts/?page=0'}" class="btn btn-link text-muted">← Back to
+                            Contacts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

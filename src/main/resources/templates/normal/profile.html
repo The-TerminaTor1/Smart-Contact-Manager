@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Profile</title>
+</head>
+
+<body>
+    <section
+        class="profile-container text-white banner-yourprofilebg d-flex flex-column align-items-center justify-content-center">
+
+        <div class="profile-card">
+
+            <!-- Profile Image -->
+            <div class="mb-3">
+                <img th:if="${user.imageURL != null and !#strings.isEmpty(user.imageURL)}"
+                    th:src="@{'/img/' + ${user.imageURL}}" alt="Profile Image" class="profile-img">
+
+                <img th:unless="${user.imageURL != null and !#strings.isEmpty(user.imageURL)}"
+                    th:src="@{'/img/userdefault.jpg'}" alt="Default Image" class="profile-img">
+            </div>
+
+            <!-- Name -->
+            <div class="profile-name mb-4" th:text="${user.name}">John Doe</div>
+
+            <!-- Profile Info Table -->
+            <table class="profile-info table table-borderless text-white">
+                <tr>
+                    <th scope="row" class="label">Email</th>
+                    <td th:text="${user.email}">user@example.com</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="label">Role</th>
+                    <td th:text="${user.role}">ROLE_USER</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="label">About</th>
+                    <td th:text="${user.about}">This is the about section.</td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+</body>
+
+</html>

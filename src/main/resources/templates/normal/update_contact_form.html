@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base2::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Contact</title>
+</head>
+
+<body>
+    <section class="p-5">
+        <div class="container text-white ">
+            <h2 class="text-center mb-4">Update Contact</h2>
+            <!-- " -->
+            <form th:action="@{/user/process-update}" method="post" enctype="multipart/form-data"
+                th:object="${contact}">
+                <input type="hidden" th:field="*{cid}" />
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" th:field="*{name}" class="form-control"
+                        th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'" placeholder="First name" required>
+                    <div class="invalid-feedback" th:errors="*{name}"></div>
+                </div>
+
+                <!-- Last Name -->
+                <div class="mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" th:field="*{secondName}" class="form-control"
+                        th:classappend="${#fields.hasErrors('secondName')} ? 'is-invalid'" placeholder="Last name"
+                        required>
+                    <div class="invalid-feedback" th:errors="*{secondName}"></div>
+                </div>
+
+                <!-- Work -->
+                <div class="mb-3">
+                    <label class="form-label">Work</label>
+                    <input type="text" th:field="*{work}" class="form-control" placeholder="Company or Designation"
+                        required>
+                </div>
+
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control"
+                        th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'" placeholder="Email address"
+                        required>
+                    <div class="invalid-feedback" th:errors="*{email}"></div>
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="text" th:field="*{phone}" class="form-control"
+                        th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid'" placeholder="Phone number"
+                        required min="10" max="13" pattern="[0-9]{10}">
+                    <div class="invalid-feedback" th:errors="*{phone}"></div>
+                </div>
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea id="textarea" th:field="*{description}" class="form-control" rows="3"
+                        placeholder="Any additional notes..."></textarea>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="mb-3">
+                    <label class="form-label">Contact Image</label><br />
+                    <img th:src="@{'/img/' + ${contact.cimage}}" alt="Profile Image"
+                        class="img-thumbnail img-fluid my_pfp mb-2" width="100" />
+                    <input type="file" name="image" class="form-control" />
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">Update Contact</button>
+                    <a th:href="@{/user/show-contacts/0}" class="btn btn-secondary px-4">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

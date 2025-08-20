@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Signup Page</title>
+</head>
+
+<body>
+	<section class="bg-signup">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2 ">
+
+					<div class="my-card ">
+						<div th:if="${session.message}" th:class="'alert ' + ${session.message.type}"
+							class="alert d-flex justify-content-center py-2 my-1" role="alert">
+							<p th:text="${session.message.content}"></p>
+							<span th:text="${session.message}"></span>
+						</div>
+
+						<h1 class="text-center">Register here</h1>
+
+						<form novalidate="novalidate" th:action="@{/do_register}" method="post" th:object="${user}">
+
+							<!-- Name field -->
+							<div class="mb-3">
+								<label for="name_field" class="form-label">Your Name</label>
+								<input type="text" th:field="*{name}" id="name_field" class="form-control"
+									th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'">
+								<div class="invalid-feedback" th:errors="*{name}"></div>
+							</div>
+
+							<!-- Email field -->
+							<div class="mb-3">
+								<label for="email_field" class="form-label">Your Email</label> <input type="email"
+									th:field="*{email}" id="email_field" class="form-control"
+									th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'">
+								<div class="invalid-feedback" th:errors="*{email}"></div>
+							</div>
+
+							<!-- Password field -->
+							<div class="mb-3">
+								<label for="password_field" class="form-label">Your
+									Password</label> <input type="password" th:field="*{password}" id="password_field"
+									class="form-control"
+									th:classappend="${#fields.hasErrors('password')} ? 'is-invalid'">
+								<div class="invalid-feedback" th:errors="*{password}"></div>
+							</div>
+
+							<!-- About field -->
+							<div class="form-group">
+								<label for="about_field" class="form-label">Your About</label>
+								<textarea name="about" rows="5" class="form-control"
+									placeholder="Enter something about yourself" th:text="*{about}"></textarea>
+							</div>
+
+							<!-- Agreement checkbox -->
+							<div class="form-group form-check d-flex justify-content-center mt-2">
+								<input type="checkbox" name="agreement" class="form-check-input" id="agreement"> <label
+									class="ms-2" for="agreement">Accept
+									Terms and Conditions</label>
+							</div>
+
+							<!-- Submit + Reset -->
+							<div class="container d-flex justify-content-center mt-3 align-items-center">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-primary ms-3">Reset</button>
+							</div>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>
